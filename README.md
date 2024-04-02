@@ -11,4 +11,5 @@ TODO
  - [ ] documentation
  - [x] example of using ptb to fetch all collaterals and debts for adresss 
  - [x] example of fetching last liquidation events/flashloan events
+ - [x] example how to use flashloan to borrow and deposit borrowed asset - "leveraged borrow"
  - [ ] working examples how to construct transaction block with borrow/deposit/withdraw/flashloan 
