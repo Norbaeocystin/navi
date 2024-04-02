@@ -16,6 +16,10 @@ struct Incentive {
     inactive_objs: Vec<SuiAddress>,
     pools: Table,
     funds: Table,
+    /*
+    pools: Table<address, IncentivePool>,
+	funds: Table<address, IncentiveFundsPoolInfo>
+     */
 }
 
 #[derive(Serialize,Deserialize,Debug,Clone)]

@@ -9,7 +9,7 @@ use sui_types::transaction::{Argument, CallArg, ObjectArg};
 use sui_types::transaction::ObjectArg::SharedObject;
 use sui_types::TypeTag;
 use misc_utils::utils::ptb_get_length;
-use crate::constants::{INCENTIVE_V1, INCENTIVE_V2, NAVI_INITIAL_PACKAGE, NAVI_ORACLE, NAVI_PACKAGE, NAVI_PACKAGE_LATEST, NAVI_STORAGE};
+use crate::constants::{INCENTIVE_V1, INCENTIVE_V2, NAVI_FLASHLOAN_CONFIG, NAVI_FLASHLOAN_INITIAL_SHARED_VERSION, NAVI_INITIAL_PACKAGE, NAVI_ORACLE, NAVI_PACKAGE, NAVI_PACKAGE_LATEST, NAVI_STORAGE};
 
 pub fn get_storage_arg() -> CallArg {
     return CallArg::Object(ObjectArg::SharedObject {
@@ -431,8 +431,8 @@ pub fn lending_flash_loan_with_ctx(mut tb: ProgrammableTransactionBuilder, asset
 ) -> ProgrammableTransactionBuilder{
     // let config_arg = get_
     let config_arg = CallArg::Object(SharedObject {
-        id: "0x3672b2bf471a60c30a03325f104f92fb195c9d337ba58072dce764fe2aa5e2dc".parse().unwrap(),
-        initial_shared_version: SequenceNumber::from_u64(75708312),
+        id: NAVI_FLASHLOAN_CONFIG.parse().unwrap(),
+        initial_shared_version: SequenceNumber::from_u64(NAVI_FLASHLOAN_INITIAL_SHARED_VERSION),
         mutable: false,
     });
     let pool_arg = CallArg::Object(SharedObject {

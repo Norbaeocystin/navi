@@ -25,7 +25,6 @@ async fn main() {
     let (pool_id, isv) = navi.pools.get(&"0x2::sui::SUI".to_string()).unwrap();
     let mut ct = asset.to_string();
     ct = ct.replace("0x","");
-    let reserve_idx = navi.reserves.iter().find(|x| x.value.coin_type == ct || x.value.coin_type.contains(&ct)  || ct.contains(&x.value.coin_type)).unwrap().name;
     // 0
     tb = lending_flash_loan_with_ctx(tb,asset.parse().unwrap(), pool_id.clone(), isv.clone(), BORROW);
     // 1
