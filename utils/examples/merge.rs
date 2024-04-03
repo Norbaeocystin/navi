@@ -13,6 +13,7 @@ async fn main(){
         .build("https://fullnode.mainnet.sui.io:443")
         .await.unwrap();
     let mut tb = ProgrammableTransactionBuilder::new();
+    // change to your address
     let address = SuiAddress::ZERO;
     // usdc wormhole
     let coin = "0x5d4b302506645c37ff133b98c4b50a5ae14841659738d6d733d59d0d217a93bf::coin::COIN";
@@ -25,7 +26,9 @@ async fn main(){
         args.push(arg);
     }
     tb.command(Command::MergeCoins(coin_arg,args ));
+    // you need to export your mnemonic as SUI_WALLET environment variable
     let txw = TransactionWrapper::new(&sui_client);
+    // this will send tx. you will pay for tx!!!!!
     let result = txw.process_ptx(tb.finish(), None, None, None,).await;
     info!("{:?}", result);
 }
