@@ -14,7 +14,9 @@ async fn main() {
         .build("https://fullnode.mainnet.sui.io:443")
         .await.unwrap();
     let storage_data = get_storage_data(&client).await;
+    // change to your address
     let liquidator_address = SuiAddress::ZERO;
+    // change to address which you want to liquidate
     let liquour_address = SuiAddress::ZERO;
     let balances = get_user_balances(&client, storage_data.reserves_count, liquour_address).await;
     info!("balances: {:#?}", balances);
