@@ -10,4 +10,5 @@ pub const INCENTIVE_V1: &str = "0xaaf735bf83ff564e1b219a0d644de894ef5bdc4b2250b1
 pub const NAVI_FLASHLOAN_CONFIG: &str = "0x3672b2bf471a60c30a03325f104f92fb195c9d337ba58072dce764fe2aa5e2dc";
 pub const NAVI_FLASHLOAN_INITIAL_SHARED_VERSION: u64 = 75708312;
 
-// pub const WAD: u64 = 10_u64.pow(27);
+// HELPER PKG 0x64372b54147adb0ac8a603adab92c81e3d732c8cafafa368d8f3ff9dcb6a53af
+// API TO FETCH ASSETS https://api-defi.naviprotocol.io/getIndexAssetData

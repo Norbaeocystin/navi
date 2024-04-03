@@ -484,3 +484,24 @@ pub fn lending_flash_repay_with_ctx(mut tb: ProgrammableTransactionBuilder,
     );
     return tb;
 }
+
+// entry public claim_reward<Ty0>(Arg0: &Clock, Arg1: &mut Incentive, Arg2: &mut IncentiveFundsPool<Ty0>, Arg3: &mut Storage, Arg4: u8, Arg5: u8, Arg6: &mut TxContext) {
+pub fn incentive_v2_claim_reward(mut tb: ProgrammableTransactionBuilder, asset: TypeTag,
+    asset_id: u8,
+    option: u8,
+) -> ProgrammableTransactionBuilder {
+    tb.move_call(
+        NAVI_PACKAGE.parse().unwrap(),
+        "lending".parse().unwrap(),
+        "claim_reward".parse().unwrap(),
+        vec![asset],
+        vec![
+            CallArg::CLOCK_IMM,
+            get_incentive_v2_arg(),
+            get_storage_arg(),
+            CallArg::Pure(vec![asset_id]),
+            CallArg::Pure(vec![option]),
+        ],
+    );
+    return tb;
+}
