@@ -84,5 +84,4 @@ async fn main() {
             max_debt_amount = debt_norm as u64;
         }
     }
-
 }
